@@ -5,14 +5,14 @@ GID := $(shell id -g)
 
 DOCKER?=docker
 DOCKER_COMPOSE?=docker-compose
-EXECJS?=$(DOCKER) run -it --rm -u $(UID):$(GID) -v "$(shell pwd)/":/home/app -w /home/app web
+EXECJS?=$(DOCKER) run -it --rm -u $(UID):$(GID) -v "$(shell pwd)/":/home/app -w /home/app node:latest
 
 ##
 ## Project setup
 ##---------------------------------------------------------------------------
 .PHONY: up stop clear
 
-install: build start ## Install and start the project with vendors update
+install: build ## Install the project with vendors update
 
 up: ## Start the project without vendors update
 	$(DOCKER_COMPOSE) up --remove-orphans
@@ -35,7 +35,7 @@ clear: stop ## clear project
 .PHONY: assets watch
 
 assets: node_modules ## Build the development version of the assets
-	$(EXECJS) npm run dev
+	$(EXECJS) npm run build
 
 watch: node_modules ## Watch the assets and build their development version on change
 	$(EXECJS) npm run build -- --mode development --watch --sourcemap
@@ -45,7 +45,7 @@ watch: node_modules ## Watch the assets and build their development version on c
 ##---------------------------------------------------------------------------
 .PHONY: rm-docker-dev.lock
 
-build: docker-dev.lock
+build: docker-dev.lock node_modules
 
 docker-dev.lock:
 	$(DOCKER_COMPOSE) pull --ignore-pull-failures
