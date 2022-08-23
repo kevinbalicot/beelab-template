@@ -9,3 +9,4 @@ services:
             - "${NODE_PORT}:${NODE_PORT}"
         volumes:
             - .:/home/app
+            - ~/.npm:/.npm

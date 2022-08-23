@@ -24,3 +24,16 @@ dist-ssr
 *.sw?
 
 .env
+
+###> dev environment ##
+/Makefile
+/Makefile.local
+/.editorconfig
+###< dev environment ###
+
+###> docker environment ##
+/docker-compose*
+/docker-dev.lock
+/Dockerfile
+/.dockerignore
+###< docker environment ###
