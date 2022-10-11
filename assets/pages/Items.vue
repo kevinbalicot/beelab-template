@@ -84,7 +84,7 @@ import DropdownHeader from "../modules/ui/components/dropdown/DropdownHeader.vue
 import Menu from "../modules/ui/components/menu/Menu.vue";
 import Pagination from "../modules/ui/components/elements/Pagination.vue";
 
-import ItemFactory from "../../src/Factory/Item";
+import ItemFactory from "../modules/app/factory/item";
 import Page from "../modules/common/services/pagination";
 
 import { eventName, countUrl, findUrl } from '../modules/app/components/Item/parameters';

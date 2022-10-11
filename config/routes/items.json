@@ -188,7 +188,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ItemEdition"
+                  "$ref": "#/components/schemas/Item"
                 }
               }
             }

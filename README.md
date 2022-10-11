@@ -1,3 +1,3 @@
 # Template
 
-A supervisor application for Docker instance
+Template description

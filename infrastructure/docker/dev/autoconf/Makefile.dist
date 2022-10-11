@@ -45,7 +45,7 @@ watch: node_modules ## Watch the assets and build their development version on c
 ##---------------------------------------------------------------------------
 .PHONY: rm-docker-dev.lock
 
-build: docker-dev.lock node_modules
+build: .env docker-dev.lock node_modules
 
 docker-dev.lock:
 	$(DOCKER_COMPOSE) pull --ignore-pull-failures
@@ -62,6 +62,9 @@ package-lock.json: package.json
 	@echo JS vendors are not up to date.
 
 public/build: assets
+
+.env:
+	@cp .env.dist .env
 
 ##
 ## Utilities
